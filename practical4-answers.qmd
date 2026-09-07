@@ -13,3 +13,49 @@ format:
 editor: source
 ---
 
+## Getting started
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+
+# Load the packages you need for this practical.
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(naniar)
+library(palmerpenguins)
+library(GGally)
+
+crickets <- read.csv("data/crickets.csv")
+```
+
+## The Cricket dataset ##
+
+1. Recreate the plot above using a colour scale for the species rather than plotting on separate facets.
+
+```{r}
+#| label: plot
+
+ggplot(crickets, aes(x = temp, y = rate, colour = species)) +
+  geom_point() +
+  theme_bw()
+```
+
+## Linear modelling ##
+2. Fit the one-way ANOVA model `rate ~ species`.
+
+```{r}
+#| label: anova
+
+anova_mod <- lm(rate ~ species, data = crickets)
+summary(anova_mod)
+```
+
+Note: A one-way ANOVA is a linear regression where the predictor is categorical.
+
+
+
+
+
