@@ -1,1 +1,1 @@
-# Practical 4 GLMs Working with categorical variables
+# Practical 4 - GLMs Working with categorical variables
